@@ -30,7 +30,7 @@
       line-height: 1.5;
     }
     a {
-      color: #39FF14; /* Neon green link color for a 90s “hacker” vibe */
+      color: #39FF14; /* Neon green link color for a 90s "hacker" vibe */
       text-decoration: none;
     }
     a:hover {
@@ -100,24 +100,73 @@
       margin: 0.5rem 0;
     }
 
-    /* CTA (EMAIL) */
-    .cta-email {
+    /* TECHNOLOGY STACK */
+    .tech-stack {
+      margin: 3rem 0;
       text-align: center;
+    }
+    .tech-stack h3 {
+      color: #39FF14;
+      margin-bottom: 1.5rem;
+    }
+    .tech-icons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .tech-icons img {
+      width: 50px;
+      height: 50px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s;
+    }
+    .tech-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* SOCIAL PROOF */
+    .testimonials {
+      background: #1a1a1a;
+      padding: 3rem 0;
       margin: 3rem 0;
     }
-    .cta-email a {
+    .testimonial-card {
+      background: #242424;
+      padding: 2rem;
+      margin: 1rem 0;
+      border-left: 3px solid #39FF14;
+    }
+    .testimonial-card cite {
+      color: #39FF14;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    /* ENHANCED CTA */
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-button {
       display: inline-block;
-      background-color: transparent;
+      padding: 1rem 2rem;
       border: 2px solid #39FF14;
       color: #39FF14;
-      padding: 0.75rem 1.5rem;
       text-transform: uppercase;
       font-weight: bold;
-      transition: background-color 0.3s, color 0.3s;
+      transition: all 0.3s;
     }
-    .cta-email a:hover {
-      background-color: #39FF14;
+    .cta-button.primary {
+      background: #39FF14;
       color: #121212;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(57, 255, 20, 0.3);
+      text-decoration: none;
     }
 
     /* FOOTER */
@@ -145,9 +194,175 @@
         font-size: 1.1rem;
       }
     }
+
+    .client-showcase {
+      margin: 2rem 0;
+    }
+
+    .client-card {
+      background: #242424;
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(57, 255, 20, 0.1);
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(57, 255, 20, 0.3);
+    }
+
+    .client-logo {
+      flex-shrink: 0;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .client-logo img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .client-content {
+      flex-grow: 1;
+    }
+
+    .client-quote {
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    cite {
+      color: #39FF14;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-info {
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .client-info p {
+      margin-bottom: 1rem;
+      color: #888;
+    }
+
+    .client-link {
+      display: inline-flex;
+      align-items: center;
+      color: #39FF14;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .client-link:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .client-link .arrow {
+      margin-left: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .client-link:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+      .client-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .client-logo {
+        margin: 0 auto;
+      }
+    }
+
+    .client-header {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .client-card-link:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .client-card-link .client-card {
+      transition: transform 0.3s ease;
+    }
+
+    .client-card-link:hover .client-card {
+      transform: translateY(-5px);
+      border-color: rgba(57, 255, 20, 0.3);
+    }
+
+    /* UNDER CONSTRUCTION BANNER */
+    .construction-banner {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(18, 18, 18, 0.9);
+      border: 1px solid #39FF14;
+      padding: 10px 15px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      animation: blink 2s infinite;
+    }
+
+    .construction-banner.hidden {
+      display: none;
+    }
+
+    .construction-banner .close-btn {
+      background: none;
+      border: none;
+      color: #39FF14;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 0 5px;
+    }
+
+    .construction-banner .close-btn:hover {
+      color: #fff;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
   </style>
 </head>
 <body>
+  <div class="construction-banner" id="constructionBanner">
+    <span>🚧 Under Construction 🚧</span>
+    <button class="close-btn" onclick="document.getElementById('constructionBanner').classList.add('hidden')">×</button>
+  </div>
 
   <!-- HEADER -->
   <header>
@@ -170,21 +385,21 @@
   <!-- STRONG STATEMENTS SECTION -->
   <section class="strong-statements">
     <div class="container">
-      <h3>Here’s What You Need to Know:</h3>
+      <h3>Here's What You Need to Know:</h3>
       <p>
-        <strong>1. Our Devs:</strong> They’re academically solid, they speak fluent English, and they’ll deliver on time.
+        <strong>1. Our Devs:</strong> They're academically solid with university degrees, they speak fluent English, and they'll deliver on time.
       </p>
       <p>
         <strong>2. AI at Our Core:</strong> We supercharge development with the latest AI tools—no fluff, just results.
       </p>
       <p>
-        <strong>3. Geography Doesn’t Matter Anymore:</strong> With today's tech, the best minds can be anywhere. We just happen to be in Mauritius — great for Europe and Asia.
+        <strong>3. Geography Doesn't Matter Anymore:</strong> With today's tech, the best minds can be anywhere. We just happen to be in Mauritius — great for Europe and Asia.
       </p>
       <p>
         <strong>4. Price Is King:</strong> We're priced to make your CFO smile, without sacrificing quality.
       </p>
       <p>
-        <strong>5. No B.S.:</strong> We’re straightforward and fast. That’s it.
+        <strong>5. No B.S.:</strong> We're straightforward and fast. That's it.
       </p>
 
       <ul>
@@ -196,12 +411,35 @@
     </div>
   </section>
 
+  <!-- CLIENT SHOWCASE -->
+  <section class="testimonials">
+    <div class="container">
+      <h3>What Do Our Clients Say?</h3>
+      <div class="client-showcase">
+        <a href="https://aflow.co" target="_blank" class="client-card-link">
+          <div class="client-card">
+            <div class="client-logo">
+              <img src="aflow_logo.png" alt="Aflow Logo">
+            </div>
+            <div class="client-content">
+              <p class="client-header">An AI product for musicians and their teams</p>
+              <p class="client-quote">"We needed a new skilled team quickly and it took less than a couple of weeks for us to get going. All team members had to jump straight in and were productive from day one. Onboarding the team also meant that we learnt where we needed more documentation and better processes, so we're a better dev team now than before in that sense as well."</p>
+              <cite>- Emil Angervall, Co-founder, Aflow</cite>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA: EMAIL US -->
   <div class="cta-email">
     <div class="container">
-      <a href="mailto:contact@gigdeveloper.com?subject=Let's%20Build%20Something%20Great">
-        Email Us Now
-      </a>
+      <div class="cta-group">
+        <a href="mailto:contact@gigdeveloper.com" class="cta-button primary">
+          Contact Us
+        </a>
+      </div>
     </div>
   </div>
 
