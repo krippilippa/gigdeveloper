@@ -390,6 +390,19 @@
       transform: translateY(-5px);
     }
     
+    /* Calendar and Iframe Styles */
+    #booking-calendar {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+    
+    #booking-calendar iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      overflow: visible;
+    }
+    
     /* Responsive Design */
     @media (max-width: 992px) {
       .services-container, 
@@ -404,6 +417,10 @@
       
       .profile-card {
         max-width: 350px;
+      }
+      
+      #booking-calendar iframe {
+        height: 900px;
       }
     }
     
@@ -425,6 +442,16 @@
       /* Hide the top button in phone mode */
       .header-container .btn {
         display: none;
+      }
+      
+      #booking-calendar iframe {
+        height: 1000px; /* Taller for mobile devices */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #booking-calendar iframe {
+        height: 1200px; /* Even taller for very small devices */
       }
     }
   </style>
@@ -636,7 +663,7 @@
       <p>Schedule your free consultation and start working with talented developers today.</p>
       <button id="show-calendar-btn" class="btn">Book a Free Consultation</button>
       <div id="booking-calendar" style="display: none; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out;">
-        <iframe src="https://link.funnel-profits.com/widget/booking/fqZ9IbxbcwwGY8PWbNVa" style="width: 100%; height: 650px; border:none; overflow: hidden;" scrolling="no" id="fqZ9IbxbcwwGY8PWbNVa_1746634727384"></iframe>
+        <iframe src="https://link.funnel-profits.com/widget/booking/fqZ9IbxbcwwGY8PWbNVa" scrolling="no" id="fqZ9IbxbcwwGY8PWbNVa_1746634727384"></iframe>
         <script src="https://link.funnel-profits.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
@@ -670,6 +697,19 @@
       const calendarButtons = document.querySelectorAll('a[href="#booking-calendar"], #show-calendar-btn');
       const calendarContainer = document.getElementById('booking-calendar');
       
+      // Function to get appropriate max height based on screen width
+      function getMaxHeight() {
+        if (window.innerWidth <= 480) {
+          return '1300px'; // Very small devices
+        } else if (window.innerWidth <= 768) {
+          return '1100px'; // Mobile devices
+        } else if (window.innerWidth <= 992) {
+          return '950px';  // Tablets
+        } else {
+          return '850px';  // Desktops
+        }
+      }
+      
       // Add click event to all calendar buttons
       calendarButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -679,7 +719,7 @@
           if (calendarContainer.style.display === 'none' || !calendarContainer.style.display) {
             calendarContainer.style.display = 'block';
             setTimeout(() => {
-              calendarContainer.style.maxHeight = '700px';
+              calendarContainer.style.maxHeight = getMaxHeight();
               
               // Scroll to calendar
               calendarContainer.scrollIntoView({behavior: 'smooth'});
@@ -691,6 +731,13 @@
             }, 500);
           }
         });
+      });
+      
+      // Update maxHeight on window resize if calendar is visible
+      window.addEventListener('resize', function() {
+        if (calendarContainer.style.display === 'block') {
+          calendarContainer.style.maxHeight = getMaxHeight();
+        }
       });
     });
   </script>
