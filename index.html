@@ -728,7 +728,7 @@
         button.addEventListener('click', function(e) {
           e.preventDefault();
           
-          // Toggle calendar visibility with animation
+          // Always open the calendar and scroll to it
           if (calendarContainer.style.display === 'none' || !calendarContainer.style.display) {
             calendarContainer.style.display = 'block';
             setTimeout(() => {
@@ -738,10 +738,8 @@
               calendarContainer.scrollIntoView({behavior: 'smooth'});
             }, 10);
           } else {
-            calendarContainer.style.maxHeight = '0';
-            setTimeout(() => {
-              calendarContainer.style.display = 'none';
-            }, 500);
+            // If already open, just scroll to it
+            calendarContainer.scrollIntoView({behavior: 'smooth'});
           }
         });
       });
