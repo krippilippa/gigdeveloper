@@ -43,6 +43,12 @@
       box-sizing: border-box;
     }
     
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    
     body {
       font-family: 'Inter', sans-serif;
       line-height: 1.6;
@@ -414,6 +420,11 @@
       
       .social-links {
         margin-top: 20px;
+      }
+      
+      /* Hide the top button in phone mode */
+      .header-container .btn {
+        display: none;
       }
     }
   </style>
